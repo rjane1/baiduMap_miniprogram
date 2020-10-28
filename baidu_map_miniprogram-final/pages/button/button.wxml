@@ -1,0 +1,46 @@
+<!--pages/button/button.wxml-->
+<view>
+  <view class="car">
+    <view class="select">当前选择车辆{{}}</view>
+    <view class="car1" bindtap="clickNew">
+      <button class="A">A</button>
+      <button class="B">B</button>
+      <button class="C">C</button>
+      <button class="D">D</button>
+      <button class="E">E</button>
+      <button class="F">F</button>
+      <button class="G">G</button>
+      <button class="H">H</button>
+    </view>
+  </view>
+  <view>
+    <view class="doing">任务执行中</view>
+    <view class="timer">
+      <view class="time">预计剩余时间:</view>
+      <view class="distance">已出发: km</view>
+      <view class="point">任务点剩余: /0</view>
+    </view>
+  </view>
+  <view class="function">
+    <view class="speed">速度{{dataList.speed}}</view>
+    <view class="angel">北向角度{{dataList.lat}}</view>
+    <view class="aspeed">加速度</view>
+    <view class="power">功率</view>
+    <view class="location">当前位置</view>
+    <view class="electricity">电量</view>
+  </view>
+  <view class="table1">
+    <view class="table">
+      <view class="tr">
+        <view class="th th1">id</view>
+        <view class="th th2">lat</view>
+        <view class="th th3">lng</view>
+      </view>
+      <view class="tr">
+        <view class="td td1">1</view>
+        <view class="td td1">0.000000</view>
+        <view class="td td1">0.000000</view>
+      </view>
+    </view>
+  </view>
+</view>

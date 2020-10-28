@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/map/map",
+    "pages/button/button"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "地图",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar":{
+    "color":"#000000",
+    "list":[
+      {
+        "pagePath":"pages/map/map",
+        "text":"地图"
+      },
+      {
+        "pagePath":"pages/button/button",
+        "text":"按钮"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于设备定位和蓝牙操作"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

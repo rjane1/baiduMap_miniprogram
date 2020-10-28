@@ -1,0 +1,69 @@
+<wxs module="format" src="../../format.wxs"></wxs>
+<view class='map'>
+  <!-- 搜索框 -->
+  <view class='search-group'>
+    <text class='icon icon-item'></text>
+    <input class='sousuo' type='text' placeholder='搜索' bindinput="bindKeyInput" bindconfirm="showAll" value='{{searchCon}}' ></input>
+  </view>
+
+
+  <view class='section'>
+    <!-- 地图 -->
+    <map id="myMap" 
+    latitude="{{latitude}}" 
+    longitude="{{longitude}}"
+    scale="{{scale}}" 
+    markers="{{markers}}" 
+    covers="{{covers}}" 
+    polyline="{{polyline}}"
+    bindcontroltap="controltap"
+    bindmarkertap="markertap"
+    bindregionchange="regionchange"
+    show-location controls>
+
+    <!-- 搜索列表 -->
+    <cover-view class="searchCon">
+      <cover-view class='searchCon-item' wx:for="{{searchResult}}" wx:key="unique" data-value="{{item}}" bindtap='tapSearchResult'>
+        <cover-view class='iconfont icon-icon--'></cover-view>
+        <cover-view class='addressname'>
+          {{item.name}}
+          <cover-view>{{item.province+item.city+item.district}}</cover-view>
+        </cover-view>
+      </cover-view>     
+    </cover-view>
+
+      <!-- 中间红色图标 -->
+      <cover-view wx:if="{{showPicker}}" class='mapPic'>
+        <cover-image src='../../public/image/location.png'></cover-image>
+      </cover-view>
+
+      <!-- 路线标记 -->
+      <cover-view class='lushuPic'>
+        <cover-image src='../../public/image/lushu.png'></cover-image>
+      </cover-view>
+
+    </map>  
+     
+    <view class='button-group'>
+      <button size="mini" type="primary" bindtap="sendData">
+        <text class='text'>规划路线</text>
+      </button> 
+    </view>
+
+  </view>
+
+  <!-- 获取的地址信息 -->
+  <view class='footer'>
+    <view class='address-container-marker' wx:if="{{ selectedMarkerId > -1 }}">
+      <view class="stroke"><text>{{markers[selectedMarkerId].title}}</text></view>
+      <view><text>地址：{{markers[selectedMarkerId].address}}</text></view>
+      <view><text>经度：{{format.toFixed(markers[selectedMarkerId].longitude, 4)}}</text></view>
+      <view><text>纬度：{{format.toFixed(markers[selectedMarkerId].latitude, 4)}}</text></view>
+    </view>
+    <view class='address-container' wx:else>
+      <view><text>地址：{{address}}</text></view>
+      <view><text>经度：{{format.toFixed(center.longitude, 4)}}</text></view>
+      <view><text>纬度：{{format.toFixed(center.latitude, 4)}}</text></view>
+    </view>
+  </view>
+</view>

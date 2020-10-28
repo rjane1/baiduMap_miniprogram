@@ -1,0 +1,8 @@
+module.exports = {
+  toFixed: function(value, n) { 
+    if (typeof value == 'number')
+      return value.toFixed(n);
+    else
+      return '';
+  }
+}
